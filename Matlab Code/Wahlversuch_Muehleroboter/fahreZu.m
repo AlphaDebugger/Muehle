@@ -1,0 +1,132 @@
+function fahreZu(brickObj, i, j, r)
+drehmotor = brickObj.motorC;
+drehmotor.brakeMode = 'Brake';
+drehmotor.speedRegulation = 'On';
+drehmotor.resetTachoCount;
+fahrmotor = brickObj.motorB;
+fahrmotor.brakeMode = 'Brake';
+fahrmotor.speedRegulation = 'On';
+fahrmotor.resetTachoCount;
+if(j == 1)
+    drehmotor.limitValue = 134;
+    drehmotor.power = -5 * r;
+    drehmotor.start
+    if(i == 1)
+        fahrmotor.limitValue = 2200;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1420;
+    elseif (i == 7)
+        fahrmotor.limitValue = 540;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+elseif (j == 2)
+    drehmotor.limitValue = 90;
+    drehmotor.power = -5 * r;
+    drehmotor.start
+    if(i == 2)
+        fahrmotor.limitValue = 1750;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1200;
+    elseif (i == 6)
+        fahrmotor.limitValue = 750;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+elseif (j == 3)
+    drehmotor.limitValue = 42;
+    drehmotor.power = -5 * r;
+    drehmotor.start
+    if(i == 3)
+        fahrmotor.limitValue = 1460;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1180;
+    elseif (i == 5)
+        fahrmotor.limitValue = 900;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+elseif (j==4)
+    if(i == 1)
+        fahrmotor.limitValue = 1950;
+    elseif (i == 2)
+        fahrmotor.limitValue = 1670;
+    elseif (i == 3)
+        fahrmotor.limitValue = 1370;
+    elseif (i == 5)
+        fahrmotor.limitValue = 930;
+    elseif (i == 6)
+        fahrmotor.limitValue = 650;
+    elseif (i == 7)
+        fahrmotor.limitValue = 380;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+elseif (j==5)
+   drehmotor.limitValue = 42;
+    drehmotor.power = 5 * r;
+    drehmotor.start
+    if(i == 3)
+        fahrmotor.limitValue = 1460;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1200;
+    elseif (i == 5)
+        fahrmotor.limitValue = 900;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor
+elseif (j == 6)
+    drehmotor.limitValue = 90;
+    drehmotor.power = 5 * r;
+    drehmotor.start
+    if(i == 2)
+        fahrmotor.limitValue = 1750;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1420;
+    elseif (i == 6)
+        fahrmotor.limitValue = 750;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+elseif (j == 7)
+    drehmotor.limitValue = 134;
+    drehmotor.power = 5 * r;
+    drehmotor.start
+    if(i == 1)
+        fahrmotor.limitValue = 2200;
+    elseif (i == 4)
+        fahrmotor.limitValue = 1420;
+    elseif (i == 7)
+        fahrmotor.limitValue = 540;
+    else 
+        fahrmotor.limitValue = 1;
+    end
+    fahrmotor.power = -10 * r;
+    fahrmotor.start;
+    drehmotor.waitFor;
+    fahrmotor.waitFor;
+end

@@ -1,0 +1,17 @@
+brickObj = EV3();
+brickObj.connect('usb');
+hoehenmotor = brickObj.motorD;
+brickObj.sensor2.mode = DeviceMode.Color.Reflect;
+hoehenmotor.brakeMode = 'Brake';
+hoehenmotor.power = -5;
+hoehenmotor.speedRegulation = 'On';
+hoehenmotor.resetTachoCount;
+hoehenmotor.limitValue = 160;
+hoehenmotor.start;
+hoehenmotor.waitFor;
+tic
+while (toc < 30)
+    farbeErkennen(brickObj);
+    brickObj.sensor2.value
+end
+brickObj.disconnect();

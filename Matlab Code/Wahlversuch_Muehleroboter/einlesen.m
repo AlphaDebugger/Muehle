@@ -1,0 +1,227 @@
+function [spielfeld] = einlesen(brickObj)
+spielfeld =         [0 3 3 0 3 3 0;
+                     3 0 3 0 3 0 3;
+                     3 3 0 0 0 3 3;
+                     0 0 0 3 0 0 0;
+                     3 3 0 0 0 3 3;
+                     3 0 3 0 3 0 3;
+                     0 3 3 0 3 3 0];
+
+%Hochfahren
+hoehenmotor = brickObj.motorD;
+hoehenmotor.power = -5;
+hoehenmotor.speedRegulation = 'On';
+hoehenmotor.brakeMode = 'Brake';
+hoehenmotor.resetTachoCount;
+hoehenmotor.limitValue = 160;
+hoehenmotor.start;
+hoehenmotor.waitFor;
+
+brickObj.motorB.brakeMode = 'Brake';
+brickObj.motorB.speedRegulation = 'On';
+brickObj.motorC.brakeMode = 'Brake';
+brickObj.motorC.speedRegulation = 'On';
+
+%Vorfahren
+brickObj.motorB.power = -10;
+brickObj.motorB.limitValue = 730;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+
+%Spalte 1
+brickObj.motorC.power = -5;
+brickObj.motorB.power = -10;
+
+brickObj.motorC.limitValue = 200;
+brickObj.motorC.start;
+brickObj.motorC.waitFor;
+brickObj.motorB.limitValue = 450;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+
+spielfeld(7, 1 ) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 860;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(4, 1) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 760;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(1, 1) = farbeErkennen(brickObj)
+
+%Spalte 2
+brickObj.motorC.power = 5;
+brickObj.motorC.resetTachoCount;
+brickObj.motorC.limitValue = 90;
+brickObj.motorC.start;
+brickObj.motorB.power = 10;
+brickObj.motorB.resetTachoCount;
+brickObj.motorB.limitValue = 600;
+brickObj.motorB.start;
+brickObj.motorC.waitFor;
+brickObj.motorB.waitFor;
+
+spielfeld(2, 2) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 530;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(4, 2) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 530;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(6, 2) = farbeErkennen(brickObj)
+
+%Spalte 3
+brickObj.motorC.limitValue = 57;
+brickObj.motorC.start;
+brickObj.motorB.power = -10;
+brickObj.motorB.resetTachoCount;
+brickObj.motorB.limitValue = 150
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(5, 3) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 280;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(4, 3) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 240;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(3, 3) = farbeErkennen(brickObj)
+
+%Spalte 4
+brickObj.motorC.limitValue = 53;
+brickObj.motorC.start;
+brickObj.motorB.limitValue = 560
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(1, 4) = farbeErkennen(brickObj)
+
+brickObj.motorB.power = 10;
+brickObj.motorB.resetTachoCount;
+brickObj.motorB.limitValue = 280
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(2, 4) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 300;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(3, 4) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 540;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(5, 4) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 240;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(6, 4) = farbeErkennen(brickObj)
+
+
+brickObj.motorB.limitValue = 320;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(7, 4) = farbeErkennen(brickObj)
+
+%Spalte 5
+brickObj.motorC.limitValue = 50;
+brickObj.motorC.start;
+brickObj.motorB.power = -10;
+brickObj.motorB.resetTachoCount;
+brickObj.motorB.limitValue = 580
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(5, 5) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 280;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(4, 5) = farbeErkennen(brickObj)
+
+brickObj.motorB.limitValue = 240;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(3, 5) = farbeErkennen(brickObj)
+
+%Spalte 6
+brickObj.motorC.limitValue = 57;
+brickObj.motorC.start;
+brickObj.motorB.limitValue = 420;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(2, 6) = farbeErkennen(brickObj)
+
+brickObj.motorB.power = 10;
+brickObj.motorB.resetTachoCount,
+brickObj.motorB.limitValue = 530;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(4, 6) = farbeErkennen(brickObj)
+
+
+brickObj.motorB.limitValue = 540;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(6, 6) = farbeErkennen(brickObj)
+
+%Spalte 7
+brickObj.motorC.limitValue = 90;
+brickObj.motorC.start;
+brickObj.motorB.power = -10;
+brickObj.motorB.resetTachoCount,
+brickObj.motorB.limitValue = 50
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+spielfeld(7, 7) = farbeErkennen(brickObj)
+
+
+brickObj.motorB.limitValue = 860;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(4, 7) = farbeErkennen(brickObj)
+
+
+brickObj.motorB.limitValue = 760;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+spielfeld(1, 7) = farbeErkennen(brickObj)
+
+brickObj.motorC.power = -5;
+brickObj.motorC.resetTachoCount;
+brickObj.motorC.limitValue = 200;
+brickObj.motorC.start;
+brickObj.motorB.power = 10;
+brickObj.motorB.resetTachoCount,
+brickObj.motorB.limitValue = 2120
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+brickObj.motorC.waitFor;
+
+%Zurückfahren
+brickObj.motorB.power = 10;
+brickObj.motorB.limitValue = 730;
+brickObj.motorB.start;
+brickObj.motorB.waitFor;
+
+%Runter
+hoehenmotor.power = 5;
+hoehenmotor.resetTachoCount;
+hoehenmotor.limitValue = 160;
+hoehenmotor.start;
+hoehenmotor.waitFor;
+end
